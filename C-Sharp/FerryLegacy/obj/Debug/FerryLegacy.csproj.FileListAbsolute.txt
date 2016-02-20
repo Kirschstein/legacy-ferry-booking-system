@@ -1,0 +1,11 @@
+C:\src\ferrylegacy\FerryLegacy\bin\Debug\FerryLegacy.exe.config
+C:\src\ferrylegacy\FerryLegacy\bin\Debug\Data\ferries.txt
+C:\src\ferrylegacy\FerryLegacy\bin\Debug\Data\ports.txt
+C:\src\ferrylegacy\FerryLegacy\bin\Debug\Data\timetable.txt
+C:\src\ferrylegacy\FerryLegacy\bin\Debug\FerryLegacy.exe
+C:\src\ferrylegacy\FerryLegacy\bin\Debug\FerryLegacy.pdb
+C:\src\ferrylegacy\FerryLegacy\bin\Debug\ServiceStack.Text.dll
+C:\src\ferrylegacy\FerryLegacy\bin\Debug\ServiceStack.Text.xml
+C:\src\ferrylegacy\FerryLegacy\obj\Debug\FerryLegacy.csprojResolveAssemblyReference.cache
+C:\src\ferrylegacy\FerryLegacy\obj\Debug\FerryLegacy.exe
+C:\src\ferrylegacy\FerryLegacy\obj\Debug\FerryLegacy.pdb
