@@ -1,4 +1,4 @@
-﻿public class TimeTableEntry {
+public class TimeTableEntry {
 	public int Id;
 	public int TimeTableId;
 	public int OriginId;
