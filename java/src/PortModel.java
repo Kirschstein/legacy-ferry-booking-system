@@ -4,36 +4,38 @@ import java.util.List;
 import java.util.Map;
 
 public class PortModel {
-	public int Id;
-	public String Name;
 
-	private final Map<Integer, Long> _boatAvailability = new HashMap<Integer, Long>();
-	private final List<Ferry> _boats = new ArrayList<Ferry>();
+    public int id;
+    public String name;
 
-	public PortModel(Port port) {
-		Id = port.Id;
-		Name = port.Name;
-	}
+    private final Map<Integer, Long> boatAvailability = new HashMap<>();
+    private final List<Ferry> boats = new ArrayList<>();
 
-	public void AddBoat(long available, Ferry boat) {
-		if (boat != null) {
-			_boats.add(boat);
-			_boatAvailability.put(boat.Id, available);
-		}
-	}
+    public PortModel(Port port) {
+        id = port.id;
+        name = port.name;
+    }
 
-	public Ferry GetNextAvailable(long time) {
-		for (Map.Entry<Integer, Long> entry : _boatAvailability.entrySet()) {
-			if (time >= entry.getValue()) {
-				_boatAvailability.remove(entry.getKey());
-				for (Ferry boat : _boats)
-					if (boat.Id == entry.getKey()) {
-						_boats.remove(boat);
-						return boat;
-					}
-				return null;
-			}
-		}
-		return null;
-	}
+    public void addBoat(long available, Ferry boat) {
+        if (boat != null) {
+            boats.add(boat);
+            boatAvailability.put(boat.id, available);
+        }
+    }
+
+    public Ferry getNextAvailable(long time) {
+        for (Map.Entry<Integer, Long> entry : boatAvailability.entrySet()) {
+            if (time >= entry.getValue()) {
+                boatAvailability.remove(entry.getKey());
+                for (Ferry boat : boats) {
+                    if (boat.id == entry.getKey()) {
+                        boats.remove(boat);
+                        return boat;
+                    }
+                }
+                return null;
+            }
+        }
+        return null;
+    }
 }

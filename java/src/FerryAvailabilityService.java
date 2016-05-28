@@ -4,56 +4,53 @@ import java.util.Comparator;
 import java.util.List;
 
 public class FerryAvailabilityService {
-	private final Ports _ports;
-	private final Ferries _ferries;
-	private final TimeTables _timeTables;
-	private final PortManager _portManager;
 
-	public FerryAvailabilityService(Ports ports, Ferries ferries,
-			TimeTables timeTables, PortManager portManager) {
-		_ports = ports;
-		_ferries = ferries;
-		_timeTables = timeTables;
-		_portManager = portManager;
-	}
+    private final TimeTables timeTables;
+    private final PortManager portManager;
 
-	public Ferry NextFerryAvailableFrom(int portId, long time) {
-		List<PortModel> ports = _portManager.PortModels();
-		List<TimeTableEntry> allEntries = new ArrayList<TimeTableEntry>();
-		for (TimeTable tt : _timeTables.All())
-			allEntries.addAll(tt.Entries);
-		Collections.sort(allEntries, new Comparator<TimeTableEntry>() {
-			@Override
-			public int compare(TimeTableEntry tte1, TimeTableEntry tte2) {
-				return Long.compare(tte1.Time, tte2.Time);
-			}
-		});
+    public FerryAvailabilityService(TimeTables timeTables, PortManager portManager) {
+        this.timeTables = timeTables;
+        this.portManager = portManager;
+    }
 
-		for (TimeTableEntry entry : allEntries) {
-			FerryJourney ferry = FerryManager.CreateFerryJourney(ports, entry);
-			if (ferry != null) {
-				BoatReady(entry, ferry.Destination, ferry);
-			}
-			if (entry.OriginId == portId) {
-				if (entry.Time >= time) {
-					if (ferry != null) {
-						return ferry.Ferry;
-					}
-				}
-			}
-		}
+    public Ferry nextFerryAvailableFrom(int portId, long time) {
+        List<PortModel> ports = portManager.PortModels();
+        List<TimeTableEntry> allEntries = new ArrayList<TimeTableEntry>();
+        for (TimeTable tt : timeTables.all()) {
+            allEntries.addAll(tt.entries);
+        }
+        Collections.sort(allEntries, new Comparator<TimeTableEntry>() {
 
-		return null;
-	}
+            @Override
+            public int compare(TimeTableEntry tte1, TimeTableEntry tte2) {
+                return Long.compare(tte1.time, tte2.time);
+            }
+        });
 
-	private static void BoatReady(TimeTableEntry timetable,
-			PortModel destination, FerryJourney ferryJourney) {
-		if (ferryJourney.Ferry == null)
-			FerryManager.AddFerry(timetable, ferryJourney);
+        for (TimeTableEntry entry : allEntries) {
+            FerryJourney ferry = FerryManager.createFerryJourney(ports, entry);
+            if (ferry != null) {
+                boatReady(entry, ferry.destination, ferry);
+            }
+            if (entry.originId == portId) {
+                if (entry.time >= time) {
+                    if (ferry != null) {
+                        return ferry.ferry;
+                    }
+                }
+            }
+        }
 
-		Ferry ferry = ferryJourney.Ferry;
+        return null;
+    }
 
-		long time = FerryModule.TimeReady(timetable, destination);
-		destination.AddBoat(time, ferry);
-	}
+    private static void boatReady(TimeTableEntry timetable, PortModel destination, FerryJourney ferryJourney) {
+        if (ferryJourney.ferry == null) {
+            FerryManager.addFerry(timetable, ferryJourney);
+        }
+        Ferry ferry = ferryJourney.ferry;
+
+        long time = FerryModule.timeReady(timetable, destination);
+        destination.addBoat(time, ferry);
+    }
 }

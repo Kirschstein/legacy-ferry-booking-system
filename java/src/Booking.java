@@ -1,4 +1,5 @@
 public class Booking {
-	public int JourneyId;
-	public int Passengers;
+
+    public int journeyId;
+    public int passengers;
 }

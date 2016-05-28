@@ -9,70 +9,77 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class TimeTables {
-	private final List<TimeTableEntry> _entries = new ArrayList<TimeTableEntry>();
 
-	public TimeTables() {
-		try {
-			String json = readFile("src/Data/timetable.txt");
-			JSONArray arr = new JSONArray(json);
-			for (int i = 0; i < arr.length(); i++) {
-				JSONObject obj = arr.getJSONObject(i);
-				TimeTableEntry tte = new TimeTableEntry();
-				tte.Id = obj.getInt("Id");
-				tte.TimeTableId = obj.getInt("TimeTableId");
-				tte.OriginId = obj.getInt("OriginId");
-				tte.DestinationId = obj.getInt("DestinationId");
-				tte.Time = obj.getLong("Time");
-				tte.JourneyTime = obj.getLong("JourneyTime");
-				_entries.add(tte);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+    private final List<TimeTableEntry> entries = new ArrayList<>();
 
-	public List<TimeTable> All() {
-		List<TimeTable> result = new ArrayList<TimeTable>();
-		List<TimeTableEntry> timeTableEntries = new ArrayList<TimeTableEntry>();
-		for (TimeTableEntry entry : _entries)
-			if (entry.TimeTableId == 1)
-				timeTableEntries.add(entry);
-		AddOrigin(timeTableEntries, 1);
-		TimeTable timeTable = new TimeTable();
-		timeTable.Id = 1;
-		timeTable.Entries = timeTableEntries;
-		result.add(timeTable);
+    public TimeTables() {
+        try {
+            String json = readFile("src/Data/timetable.txt");
+            JSONArray arr = new JSONArray(json);
+            for (int i = 0; i < arr.length(); i++) {
+                JSONObject obj = arr.getJSONObject(i);
+                TimeTableEntry tte = new TimeTableEntry();
+                tte.id = obj.getInt("Id");
+                tte.timeTableId = obj.getInt("TimeTableId");
+                tte.originId = obj.getInt("OriginId");
+                tte.destinationId = obj.getInt("DestinationId");
+                tte.time = obj.getLong("Time");
+                tte.journeyTime = obj.getLong("JourneyTime");
+                entries.add(tte);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
-		List<TimeTableEntry> timeTableEntries2 = new ArrayList<TimeTableEntry>();
-		for (TimeTableEntry entry : _entries)
-			if (entry.TimeTableId == 2)
-				timeTableEntries2.add(entry);
-		AddOrigin(timeTableEntries2, 2);
-		TimeTable timeTable2 = new TimeTable();
-		timeTable2.Id = 2;
-		timeTable2.Entries = timeTableEntries2;
-		result.add(timeTable2);
+    public List<TimeTable> all() {
+        List<TimeTable> result = new ArrayList<TimeTable>();
+        List<TimeTableEntry> timeTableEntries = new ArrayList<TimeTableEntry>();
+        for (TimeTableEntry entry : entries) {
+            if (entry.timeTableId == 1) {
+                timeTableEntries.add(entry);
+            }
+        }
+        addOrigin(timeTableEntries, 1);
+        TimeTable timeTable = new TimeTable();
+        timeTable.id = 1;
+        timeTable.entries = timeTableEntries;
+        result.add(timeTable);
 
-		List<TimeTableEntry> timeTableEntries3 = new ArrayList<TimeTableEntry>();
-		for (TimeTableEntry entry : _entries)
-			if (entry.TimeTableId == 3)
-				timeTableEntries3.add(entry);
-		AddOrigin(timeTableEntries3, 3);
-		TimeTable timeTable3 = new TimeTable();
-		timeTable3.Id = 3;
-		timeTable3.Entries = timeTableEntries3;
-		result.add(timeTable3);
-		return result;
-	}
+        List<TimeTableEntry> timeTableEntries2 = new ArrayList<TimeTableEntry>();
+        for (TimeTableEntry entry : entries) {
+            if (entry.timeTableId == 2) {
+                timeTableEntries2.add(entry);
+            }
+        }
+        addOrigin(timeTableEntries2, 2);
+        TimeTable timeTable2 = new TimeTable();
+        timeTable2.id = 2;
+        timeTable2.entries = timeTableEntries2;
+        result.add(timeTable2);
 
-	private void AddOrigin(List<TimeTableEntry> entries, int origin) {
-		for (TimeTableEntry timeTableEntry : entries) {
-			timeTableEntry.OriginId = origin;
-		}
-	}
+        List<TimeTableEntry> timeTableEntries3 = new ArrayList<TimeTableEntry>();
+        for (TimeTableEntry entry : entries) {
+            if (entry.timeTableId == 3) {
+                timeTableEntries3.add(entry);
+            }
+        }
+        addOrigin(timeTableEntries3, 3);
+        TimeTable timeTable3 = new TimeTable();
+        timeTable3.id = 3;
+        timeTable3.entries = timeTableEntries3;
+        result.add(timeTable3);
+        return result;
+    }
 
-	private static String readFile(String path) throws IOException {
-		byte[] encoded = Files.readAllBytes(Paths.get(path));
-		return new String(encoded, Charset.defaultCharset());
-	}
+    private void addOrigin(List<TimeTableEntry> entries, int origin) {
+        for (TimeTableEntry timeTableEntry : entries) {
+            timeTableEntry.originId = origin;
+        }
+    }
+
+    private static String readFile(String path) throws IOException {
+        byte[] encoded = Files.readAllBytes(Paths.get(path));
+        return new String(encoded, Charset.defaultCharset());
+    }
 }

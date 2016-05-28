@@ -1,5 +1,6 @@
 public class FerryJourney {
-	public Ferry Ferry;
-	public PortModel Origin;
-	public PortModel Destination;
+
+    public Ferry ferry;
+    public PortModel origin;
+    public PortModel destination;
 }

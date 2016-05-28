@@ -1,8 +1,9 @@
 public class TimeTableEntry {
-	public int Id;
-	public int TimeTableId;
-	public int OriginId;
-	public int DestinationId;
-	public long Time;
-	public long JourneyTime;
+
+    public int id;
+    public int timeTableId;
+    public int originId;
+    public int destinationId;
+    public long time;
+    public long journeyTime;
 }

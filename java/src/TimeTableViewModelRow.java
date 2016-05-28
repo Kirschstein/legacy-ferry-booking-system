@@ -1,9 +1,10 @@
 public class TimeTableViewModelRow {
-	public String FerryName;
-	public String DestinationPort;
-	public String OriginPort;
-	public String StartTime;
-	public String JourneyLength;
-	public String ArrivalTime;
-	public int JourneyId;
+
+    public String ferryName;
+    public String destinationPort;
+    public String originPort;
+    public String startTime;
+    public String journeyLength;
+    public String arrivalTime;
+    public int journeyId;
 }
