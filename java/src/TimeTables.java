@@ -35,9 +35,11 @@ public class TimeTables {
     public List<TimeTable> all() {
         List<TimeTable> result = new ArrayList<TimeTable>();
         List<TimeTableEntry> timeTableEntries = new ArrayList<TimeTableEntry>();
-        for (TimeTableEntry entry : entries)
-            if (entry.timeTableId == 1)
+        for (TimeTableEntry entry : entries) {
+            if (entry.timeTableId == 1) {
                 timeTableEntries.add(entry);
+            }
+        }
         addOrigin(timeTableEntries, 1);
         TimeTable timeTable = new TimeTable();
         timeTable.id = 1;
@@ -45,9 +47,11 @@ public class TimeTables {
         result.add(timeTable);
 
         List<TimeTableEntry> timeTableEntries2 = new ArrayList<TimeTableEntry>();
-        for (TimeTableEntry entry : entries)
-            if (entry.timeTableId == 2)
+        for (TimeTableEntry entry : entries) {
+            if (entry.timeTableId == 2) {
                 timeTableEntries2.add(entry);
+            }
+        }
         addOrigin(timeTableEntries2, 2);
         TimeTable timeTable2 = new TimeTable();
         timeTable2.id = 2;
@@ -55,9 +59,11 @@ public class TimeTables {
         result.add(timeTable2);
 
         List<TimeTableEntry> timeTableEntries3 = new ArrayList<TimeTableEntry>();
-        for (TimeTableEntry entry : entries)
-            if (entry.timeTableId == 3)
+        for (TimeTableEntry entry : entries) {
+            if (entry.timeTableId == 3) {
                 timeTableEntries3.add(entry);
+            }
+        }
         addOrigin(timeTableEntries3, 3);
         TimeTable timeTable3 = new TimeTable();
         timeTable3.id = 3;

@@ -18,8 +18,9 @@ public class TimeTableService {
     public List<TimeTableViewModelRow> getTimeTable(List<Port> ports) {
         List<TimeTable> timetables = timeTables.all();
         List<TimeTableEntry> allEntries = new ArrayList<TimeTableEntry>();
-        for (TimeTable tt : timetables)
+        for (TimeTable tt : timetables) {
             allEntries.addAll(tt.entries);
+        }
         Collections.sort(allEntries, new Comparator<TimeTableEntry>() {
 
             @Override
@@ -34,10 +35,12 @@ public class TimeTableService {
             Port origin = null;
             Port destination = null;
             for (Port x : ports) {
-                if (x.id == timetable.originId)
+                if (x.id == timetable.originId) {
                     origin = x;
-                if (x.id == timetable.destinationId)
+                }
+                if (x.id == timetable.destinationId) {
                     destination = x;
+                }
             }
             String destinationName = destination.name;
             String originName = origin.name;
@@ -59,8 +62,9 @@ public class TimeTableService {
         List<Port> ports = new Ports().all();
         List<TimeTable> timetables = timeTables.all();
         List<TimeTableEntry> allEntries = new ArrayList<TimeTableEntry>();
-        for (TimeTable tt : timetables)
+        for (TimeTable tt : timetables) {
             allEntries.addAll(tt.entries);
+        }
         Collections.sort(allEntries, new Comparator<TimeTableEntry>() {
 
             @Override
@@ -75,30 +79,36 @@ public class TimeTableService {
             Port origin = null;
             Port destination = null;
             for (Port x : ports) {
-                if (x.id == timetable.originId)
+                if (x.id == timetable.originId) {
                     origin = x;
-                if (x.id == timetable.destinationId)
+                }
+                if (x.id == timetable.destinationId) {
                     destination = x;
+                }
             }
             Ferry ferry = ferryService.nextFerryAvailableFrom(timetable.originId, timetable.time);
 
             if (toPort == destination.id && fromPort == origin.id) {
                 if (timetable.time >= time) {
                     List<Booking> journeyBookings = new ArrayList<>();
-                    for (Booking x : bookings.all())
-                        if (x.journeyId == timetable.id)
+                    for (Booking x : bookings.all()) {
+                        if (x.journeyId == timetable.id) {
                             journeyBookings.add(x);
+                        }
+                    }
                     int pax = 0;
-                    for (Booking x : journeyBookings)
+                    for (Booking x : journeyBookings) {
                         pax += x.passengers;
+                    }
                     int seatsLeft = ferry.passengers - pax;
                     if (seatsLeft > 0) {
                         AvailableCrossing crossing = new AvailableCrossing();
                         crossing.arrive = timetable.time + timetable.journeyTime;
                         crossing.ferryName = ferry.name;
                         int pax2 = 0;
-                        for (Booking x : journeyBookings)
+                        for (Booking x : journeyBookings) {
                             pax2 += x.passengers;
+                        }
                         crossing.seatsLeft = ferry.passengers - pax2;
                         crossing.setOff = timetable.time;
                         crossing.originPort = origin.name;

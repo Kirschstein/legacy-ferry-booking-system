@@ -74,9 +74,11 @@ public class Program {
         for (Port port : ports) {
             printPortHeader(port.name);
             List<TimeTableViewModelRow> items = new ArrayList<TimeTableViewModelRow>();
-            for (TimeTableViewModelRow x : rows)
-                if (x.originPort.equals(port.name))
+            for (TimeTableViewModelRow x : rows) {
+                if (x.originPort.equals(port.name)) {
                     items.add(x);
+                }
+            }
             Collections.sort(items, new Comparator<TimeTableViewModelRow>() {
 
                 @Override
@@ -108,11 +110,11 @@ public class Program {
     }
 
     private static void doCommand(String command) {
-        if (command.startsWith("search"))
+        if (command.startsWith("search")) {
             search(command);
-        else if (command.startsWith("book"))
+        } else if (command.startsWith("book")) {
             book(command);
-        else if (command.startsWith("list ports")) {
+        } else if (command.startsWith("list ports")) {
             out.println("Ports:");
             out.println("------");
             for (Port port : ports.all()) {

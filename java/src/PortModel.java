@@ -27,11 +27,12 @@ public class PortModel {
         for (Map.Entry<Integer, Long> entry : boatAvailability.entrySet()) {
             if (time >= entry.getValue()) {
                 boatAvailability.remove(entry.getKey());
-                for (Ferry boat : boats)
+                for (Ferry boat : boats) {
                     if (boat.id == entry.getKey()) {
                         boats.remove(boat);
                         return boat;
                     }
+                }
                 return null;
             }
         }
