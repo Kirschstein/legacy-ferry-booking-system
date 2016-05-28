@@ -16,8 +16,9 @@ public class FerryAvailabilityService {
     public Ferry nextFerryAvailableFrom(int portId, long time) {
         List<PortModel> ports = portManager.PortModels();
         List<TimeTableEntry> allEntries = new ArrayList<TimeTableEntry>();
-        for (TimeTable tt : timeTables.all())
+        for (TimeTable tt : timeTables.all()) {
             allEntries.addAll(tt.entries);
+        }
         Collections.sort(allEntries, new Comparator<TimeTableEntry>() {
 
             @Override
@@ -44,9 +45,9 @@ public class FerryAvailabilityService {
     }
 
     private static void boatReady(TimeTableEntry timetable, PortModel destination, FerryJourney ferryJourney) {
-        if (ferryJourney.ferry == null)
+        if (ferryJourney.ferry == null) {
             FerryManager.addFerry(timetable, ferryJourney);
-
+        }
         Ferry ferry = ferryJourney.ferry;
 
         long time = FerryModule.timeReady(timetable, destination);

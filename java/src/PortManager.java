@@ -13,12 +13,15 @@ public class PortManager {
 
     public List<PortModel> PortModels() {
         List<PortModel> allPorts = new ArrayList<>();
-        for (Port port : ports.all())
+        for (Port port : ports.all()) {
             allPorts.add(new PortModel(port));
+        }
         for (Ferry ferry : ferries.all()) {
-            for (PortModel port : allPorts)
-                if (port.id == ferry.homePortId)
+            for (PortModel port : allPorts) {
+                if (port.id == ferry.homePortId) {
                     port.addBoat(10, ferry);
+                }
+            }
         }
         return allPorts;
     }
