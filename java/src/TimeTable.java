@@ -1,6 +1,7 @@
 import java.util.List;
 
 public class TimeTable {
-	public int Id;
-	public List<TimeTableEntry> Entries;
+
+    public int id;
+    public List<TimeTableEntry> entries;
 }

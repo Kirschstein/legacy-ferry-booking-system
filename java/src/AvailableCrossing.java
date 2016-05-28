@@ -1,9 +1,10 @@
 public class AvailableCrossing {
-	public String FerryName;
-	public String OriginPort;
-	public String DestinationPort;
-	public long SetOff;
-	public long Arrive;
-	public int SeatsLeft;
-	public int JourneyId;
+
+    public String ferryName;
+    public String originPort;
+    public String destinationPort;
+    public long setOff;
+    public long arrive;
+    public int seatsLeft;
+    public int journeyId;
 }
