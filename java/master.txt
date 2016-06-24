@@ -1,0 +1,86 @@
+Welcome to the Ferry Finding System
+=======
+Ferry Time Table
+
+Departures from Port Ellen
+
+ --------------------------------------------------------------------------
+| Time     | Destination   | Journey Time  | Ferry              | Arrives  |
+ --------------------------------------------------------------------------
+| 00:00    | Mos Eisley    | 00:30         |                    | 00:30    |
+| 00:10    | Tarsonis      | 00:45         | Titanic            | 00:55    |
+| 00:20    | Mos Eisley    | 00:30         | Hyperion           | 00:50    |
+| 00:40    | Mos Eisley    | 00:30         | Millenium Falcon   | 01:10    |
+| 01:00    | Mos Eisley    | 00:30         | Golden Hind        | 01:30    |
+| 01:10    | Tarsonis      | 00:45         | Enterprise         | 01:55    |
+| 01:20    | Mos Eisley    | 00:30         | Hood               | 01:50    |
+| 01:40    | Mos Eisley    | 00:30         | Tempest            | 02:10    |
+
+Departures from Mos Eisley
+
+ --------------------------------------------------------------------------
+| Time     | Destination   | Journey Time  | Ferry              | Arrives  |
+ --------------------------------------------------------------------------
+| 00:10    | Port Ellen    | 00:30         | Enterprise         | 00:40    |
+| 00:30    | Port Ellen    | 00:30         | Tempest            | 01:00    |
+| 00:40    | Tarsonis      | 00:35         | Black Pearl        | 01:15    |
+| 00:50    | Port Ellen    | 00:30         |                    | 01:20    |
+| 01:10    | Port Ellen    | 00:30         | Hyperion           | 01:40    |
+| 01:30    | Port Ellen    | 00:30         | Millenium Falcon   | 02:00    |
+| 01:40    | Tarsonis      | 00:35         | Defiant            | 02:15    |
+| 01:50    | Port Ellen    | 00:30         | Golden Hind        | 02:20    |
+
+Departures from Tarsonis
+
+ --------------------------------------------------------------------------
+| Time     | Destination   | Journey Time  | Ferry              | Arrives  |
+ --------------------------------------------------------------------------
+| 00:25    | Port Ellen    | 00:45         | Dreadnaught        | 01:10    |
+| 00:40    | Mos Eisley    | 00:35         | Defiant            | 01:15    |
+| 01:25    | Port Ellen    | 00:45         | Titanic            | 02:10    |
+| 01:40    | Mos Eisley    | 00:35         | Black Pearl        | 02:15    |
+Commands are: [search x y hh:mm] book, or list bookings
+  search x y hh:mm
+  book x y
+  list bookings
+  list ports
+
+Book is [book x y]
+where x - journey id
+where y - number of passenger
+
+Search is [search x y hh:mm]
+where: x - origin port id
+where: y - destinationg port id
+where: hh:mm - time to search after
+Ports:
+------
+1 - Port Ellen
+2 - Mos Eisley
+3 - Tarsonis
+
+[00:40] Mos Eisley to Tarsonis -  Black Pearl (JourneyId : 10, spaces left 12)
+[01:40] Mos Eisley to Tarsonis -  Defiant (JourneyId : 14, spaces left 11)
+[00:40] Mos Eisley to Tarsonis -  Black Pearl (JourneyId : 10, spaces left 12)
+[01:40] Mos Eisley to Tarsonis -  Defiant (JourneyId : 14, spaces left 11)
+Booked
+[00:40] Mos Eisley to Tarsonis -  Black Pearl (JourneyId : 10, spaces left 10)
+[01:40] Mos Eisley to Tarsonis -  Defiant (JourneyId : 14, spaces left 11)
+Booked
+Cannot book that journey
+[01:00] Port Ellen to Mos Eisley -  Golden Hind (JourneyId : 4, spaces left 14)
+[01:20] Port Ellen to Mos Eisley -  Hood (JourneyId : 6, spaces left 8)
+[01:40] Port Ellen to Mos Eisley -  Tempest (JourneyId : 7, spaces left 8)
+Booked
+Cannot book that journey
+[01:00] Port Ellen to Mos Eisley -  Golden Hind (JourneyId : 4, spaces left 12)
+[01:20] Port Ellen to Mos Eisley -  Hood (JourneyId : 6, spaces left 8)
+[01:40] Port Ellen to Mos Eisley -  Tempest (JourneyId : 7, spaces left 8)
+[01:10] Port Ellen to Tarsonis -  Enterprise (JourneyId : 5, spaces left 14)
+Cannot book that journey
+Cannot book that journey
+[00:10] Port Ellen to Tarsonis -  Titanic (JourneyId : 16, spaces left 12)
+[01:10] Port Ellen to Tarsonis -  Enterprise (JourneyId : 5, spaces left 14)
+Bookings:
+---------
+journey 10 - passengers 2journey 10 - passengers 10journey 4 - passengers 2
