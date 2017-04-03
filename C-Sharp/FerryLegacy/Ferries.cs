@@ -12,7 +12,7 @@ namespace FerryLegacy
 
         public Ferries()
         {
-            var file = AppDomain.CurrentDomain.BaseDirectory + "\\data\\ferries.txt";
+			var file = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "data", "ferries.txt");
             var reader = new StreamReader(file);
            _ferries = reader.ReadToEnd().FromJson<IEnumerable<Ferry>>().ToList();
         }

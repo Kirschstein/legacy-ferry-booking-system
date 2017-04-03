@@ -12,7 +12,7 @@ namespace FerryLegacy
 
         public TimeTables()
         {
-            var reader = new StreamReader(AppDomain.CurrentDomain.BaseDirectory + "\\data\\timetable.txt");
+			var reader = new StreamReader(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "data", "timetable.txt"));
             _entries = reader.ReadToEnd().FromJson<List<TimeTableEntry>>();
         }
 
