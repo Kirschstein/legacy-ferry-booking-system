@@ -11,7 +11,7 @@ namespace FerryLegacy
 
         public Ports()
         {
-            var reader = new StreamReader(AppDomain.CurrentDomain.BaseDirectory + "\\data\\ports.txt");
+			var reader = new StreamReader(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "data", "ports.txt"));
             _ports = reader.ReadToEnd().FromJson<List<Port>>();
         }
 
