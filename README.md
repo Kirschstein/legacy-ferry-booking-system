@@ -10,4 +10,5 @@ There's a bug within this code base, the time table that is printed is missing a
 Can you use the Saff Squeeze technique to zone in on the offending line of code causing this error? (The bug is slightly contrived, but most people that have done this workshop with me have found it)
 
 https://medium.com/@kentbeck_7670/hit-em-high-hit-em-low-ffe1991ee8d
+
 https://www.infoq.com/news/2008/11/beck-saff-squeeze/
