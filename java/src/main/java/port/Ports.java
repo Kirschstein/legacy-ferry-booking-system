@@ -11,7 +11,7 @@ import org.apache.commons.io.IOUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import static ferry.booking.Util.readFileToString;
+import static util.Util.readFileToString;
 
 public class Ports {
 
