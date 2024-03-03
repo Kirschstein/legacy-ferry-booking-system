@@ -1,4 +1,4 @@
-package ferry.booking;
+package util;
 
 
 import org.apache.commons.io.IOUtils;

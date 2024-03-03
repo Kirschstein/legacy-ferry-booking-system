@@ -3,8 +3,8 @@ import static org.junit.Assert.assertEquals;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-import ferry.booking.Program;
 import org.junit.Test;
+import util.Program;
 
 public class SaffSqueeze {
 

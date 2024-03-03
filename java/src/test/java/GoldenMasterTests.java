@@ -8,8 +8,8 @@ import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-import ferry.booking.Program;
 import org.junit.Test;
+import util.Program;
 
 public class GoldenMasterTests {
 

@@ -58,7 +58,7 @@
     <Compile Include="PortManager.cs" />
     <Compile Include="PortModel.cs" />
     <Compile Include="Ports.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="util.Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TimeTable.cs" />
     <Compile Include="TimeTableEntry.cs" />

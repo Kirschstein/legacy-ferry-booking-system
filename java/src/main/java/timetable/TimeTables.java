@@ -1,4 +1,4 @@
-package ferry.booking;
+package timetable;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -8,7 +8,7 @@ import org.apache.commons.io.IOUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import static ferry.booking.Util.readFileToString;
+import static util.Util.readFileToString;
 
 public class TimeTables {
 

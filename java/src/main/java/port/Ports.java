@@ -1,4 +1,4 @@
-package ferry.booking;
+package port;
 
 import java.io.IOException;
 import java.nio.charset.Charset;

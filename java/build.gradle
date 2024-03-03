@@ -1,7 +1,14 @@
+plugins {
+    id 'org.springframework.boot' version '2.5.4'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+}
+
 group 'ferry'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -11,12 +18,17 @@ repositories {
 }
 
 dependencies {
-    compile(
-        'org.json:json:20160212',
-        'commons-io:commons-io:2.4'
-    )
-    testCompile(
-        'junit:junit:4.12'
-    )
-}
+    // Dependencias de compilación
+    implementation 'org.json:json:20160212'
+    implementation 'commons-io:commons-io:2.4'
 
+    // Dependencias de prueba
+    testImplementation 'junit:junit:4.12'
+
+    // Dependencias de Spring Boot
+    implementation 'org.springframework.boot:spring-boot-starter:2.5.4'
+
+    // Dependencia de Lombok para generar getters y setters automáticamente
+    compileOnly 'org.projectlombok:lombok:1.18.20'
+    annotationProcessor 'org.projectlombok:lombok:1.18.20'
+}
