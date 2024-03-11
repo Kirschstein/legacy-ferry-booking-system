@@ -41,3 +41,12 @@ There's a bug within this code base, the time table that is printed is missing a
 2. No hay pruebas unitarias.
 3. Todas las clases contienen codeSmells, algunos de ellos especificados en la sección de arriba.
 4. No hay pipeline/
+### Prácticas XP para mejorar la calidad del código:
+
+1. Test-Driven Development (Desarrollo Guiado por Pruebas): Es una práctica en la que se escriben las pruebas antes de escribir el código de producción. Esto ayuda a garantizar que el código esté bien probado y cumpla con los requisitos establecidos.
+
+2. Continuous Integration (Integración Continua): La integración continua implica integrar y probar el código de manera frecuente y automática. Esto ayuda a identificar y corregir errores de manera temprana, mejorando así la calidad del código.
+
+3. Refactoring (Refactorización): La refactorización es el proceso de reestructurar el código sin cambiar su comportamiento externo. Esto ayuda a mejorar la calidad del código al eliminar duplicaciones, simplificar la lógica y mejorar la legibilidad.
+
+4. Simple Design (Diseño Simple): Seguir el principio de diseño simple ayuda a mantener el código limpio y fácil de entender. Se deben evitar soluciones complejas y buscar la simplicidad en el diseño del código.
