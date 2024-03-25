@@ -10,3 +10,5 @@ public class AvailableCrossing {
     public int seatsLeft;
     public int journeyId;
 }
+
+// propon las pruebas unitarias para este codigo
